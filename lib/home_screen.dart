@@ -116,12 +116,25 @@ class Indicator extends StatelessWidget {
   final bool isActive;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 3),
+      duration: Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
       width: isActive ? 48 : 12,
       height: 12,
       decoration: BoxDecoration(
         color: Color(0XFFDAD9E4),
         borderRadius: BorderRadius.all(Radius.circular(8)),
+      ),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 600),
+          width: isActive ? 46 : 0,
+          decoration: BoxDecoration(
+            color: Colors.white
+          ),
+        ),
       ),
     );
   }
