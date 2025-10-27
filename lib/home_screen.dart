@@ -129,10 +129,13 @@ class Indicator extends StatelessWidget {
       child: Align(
         alignment: Alignment.centerLeft,
         child: AnimatedContainer(
-          duration: Duration(milliseconds: 600),
+          duration: Duration(seconds: 3),
           width: isActive ? 46 : 0,
-          decoration: BoxDecoration(
-            color: Colors.white
+          child: Container(
+            decoration: BoxDecoration(
+                color: isActive ? Colors.white : Colors.transparent,
+              borderRadius: BorderRadius.all(Radius.circular(8))
+            ),
           ),
         ),
       ),
