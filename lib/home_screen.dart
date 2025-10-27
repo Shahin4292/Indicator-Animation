@@ -8,7 +8,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool _isPressed = false;
+  bool _leftPressed = false;
+  bool _rightPressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -38,16 +39,36 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: const Color(0xFFDAD9E4),
                   shape: const CircleBorder(),
                   child: InkWell(
-                    onTapDown: (_) => setState(() => _isPressed = true),
-                    onTapCancel: () => setState(() => _isPressed = false),
-                    onTapUp: (_) => setState(() => _isPressed = false),
+                    onTapDown: (_) => setState(() => _leftPressed = true),
+                    onTapCancel: () => setState(() => _leftPressed = false),
+                    onTapUp: (_) => setState(() => _leftPressed = false),
                     customBorder: const CircleBorder(),
                     splashColor: Colors.black.withOpacity(0.3),
                     child: Padding(
                       padding: const EdgeInsets.all(15),
                       child: Icon(
                         Icons.arrow_back_ios_rounded,
-                        color: _isPressed ? Colors.white : Colors.black,
+                        color: _leftPressed ? Colors.white : Colors.black,
+                        size: 24,
+                      ),
+                    ),
+                  ),
+                ),
+
+                Material(
+                  color: const Color(0xFFDAD9E4),
+                  shape: const CircleBorder(),
+                  child: InkWell(
+                    onTapDown: (_) => setState(() => _rightPressed = true),
+                    onTapCancel: () => setState(() => _rightPressed = false),
+                    onTapUp: (_) => setState(() => _rightPressed = false),
+                    customBorder: const CircleBorder(),
+                    splashColor: Colors.black.withOpacity(0.3),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: _rightPressed ? Colors.white : Colors.black,
                         size: 24,
                       ),
                     ),
